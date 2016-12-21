@@ -8,7 +8,7 @@ var moment = moment || {};
      * Wrapper for Moment.js
      */
 
-    angular.module('MachineLearning').service('Moment', [
+    angular.module('MemoryPalace').service('Moment', [
 
         function () {
 

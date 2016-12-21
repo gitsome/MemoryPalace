@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('MachineLearning').service('ModalService', [
+    angular.module('MemoryPalace').service('ModalService', [
 
         '$rootScope',
         '$uibModal',

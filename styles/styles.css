@@ -74,6 +74,11 @@ p {
     font-family: 'Lora', serif;
 }
 
+
+.text-center {
+    text-align: center;
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -250,4 +255,10 @@ section {
 .control-box {
     margin-top: 15px;
     margin-bottom: 30px;
+}
+
+
+
+.image-column img {
+    width: 100%;
 }

@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('MemoryPalace').directive('mpMain', function () {
+    angular.module('MemoryPalace').directive('mpMemoryTest', function () {
 
         return {
 
@@ -29,15 +29,11 @@
 
             template: [
 
-                '<div class="container">',
-                    '<div class="row">',
-                        '<div class="col-xs-12">',
+                '<div class="row">',
+                    '<div class="col-xs-4 col-xs-offset-4 image-column">',
 
-                            '<h1 class="text-center">Memory Palace Training</h1>',
+                        '<img src="images/00.jpg"/>',
 
-                            '<mp-memory-test></mp-memory-test>',
-
-                        '</div>',
                     '</div>',
                 '</div>'
 
