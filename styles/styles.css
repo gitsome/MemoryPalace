@@ -331,6 +331,22 @@ button.btn-full-width {
     margin-bottom: 15px;
 }
 
+.image-wrapper .fake-image {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    font-size: 80px;
+    opacity: 0.5;
+}
+.image-wrapper .fake-image i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -36px;
+}
+
 .image-title {
     font-size: 24px;
     font-family: 'Open Sans', sans-serif;
@@ -345,6 +361,22 @@ button.btn-full-width {
     min-height: 140px;
 }
 
+.image-wrapper-small .fake-image {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    position: relative;
+    font-size: 30px;
+    opacity: 0.5;
+}
+.image-wrapper-small .fake-image i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -13px;
+}
+
 .image-wrapper-small .image-title {
     padding-top: 5px;
     font-size: 10px;
@@ -356,6 +388,7 @@ button.btn-full-width {
 /*============ NUMBER AREA ============*/
 
 .mp-number {
+    cursor: pointer;
     font-size: 48px;
     font-family: 'Nova Mono', monospace;
 }

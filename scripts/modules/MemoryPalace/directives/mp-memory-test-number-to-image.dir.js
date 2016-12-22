@@ -12,56 +12,116 @@
 
                 '$scope',
                 '$element',
+                'MemoryTestService',
 
-                function ($scope, $element) {
+                function ($scope, $element, MemoryTestService) {
 
                     /*============ MODEL ============*/
 
-                    $scope.showMode = 'none';
+                    $scope.showImage = false;
+
+                    $scope.item = {};
 
 
                     /*============ MODEL DEPENDENT METHODS ============*/
 
+                    var getNextItem = function () {
+                        $scope.showImage = false;
+                        $scope.item = MemoryTestService.getRandomItem();
+                    };
+
 
                     /*============ BEHAVIOR ============*/
 
-                    $scope.showNumber = function () {
-                        $scope.showThisNumber = true;
+                    $scope.toggleShowImage = function () {
+                        $scope.showImage = !$scope.showImage;
                     };
+
+                    $scope.setItemByGroupData = function (itemNumberString) {
+                        $scope.item = MemoryTestService.getItemByNumberString(itemNumberString);
+                    };
+
+                    $scope.getNextItem = getNextItem;
 
 
                     /*============ LISTENERS ============*/
 
+
                     /*============ INITIALIZATION ============*/
+
+                    getNextItem();
                 }
             ],
 
             template: [
 
-                '<div class="row">',
-                    '<div class="col-xs-4 col-xs-offset-4 image-column">',
-
-                        '<img src="images/00.jpg"/>',
-
-                    '</div>',
-                '</div>',
 
                 '<div class="row">',
-                    '<div class="col-xs-4 col-xs-offset-4 text-center">',
+                    '<div class="col-xs-6 col-xs-offset-3 text-center">',
 
-                        '<div class="mp-number well" ng-click="showNumber()">',
-                            '<div ng-if="showMode === \'none\'"><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i></div>',
-                            '<div ng-if="showMode === \'group\'"><i class="fa fa-question-circle"></i>{{item.itemNumber}}</div>',
-                            '<div ng-if="showMode === \'all\'">{{item.groupNumber}}{{item.itemNumber}}</div>',
+                        '<div class="mp-number well no-select" ng-click="getNextItem()">',
+
+                            '<span>',
+                                '<span class="mp-number-digit">',
+                                    '<span>{{item.groupNumber}}</span>',
+                                '</span>',
+                                '<span class="mp-number-digit">',
+                                    '<span>{{item.itemNumber}}</span>',
+                                '</span>',
+                            '</span>',
+
                         '</div>',
 
                     '</div>',
                 '</div>',
 
-                '<div class="row">',
-                    '<div class="col-xs-12">',
+                '<div ng-if="!showImage" ng-click="toggleShowImage()">',
 
+                    '<div class="row">',
+                        '<div class="col-xs-4 col-xs-offset-4 image-column text-center">',
+
+                            '<span class="image-wrapper no-select">',
+                                '<span class="fake-image"><i class="fa fa-question-circle"></i></span>',
+                                '<div class="image-title">---</div>',
+                            '</span>',
+
+                        '</div>',
                     '</div>',
+                '</div>',
+
+                '<div ng-if="showImage">',
+
+                    '<div class="row">',
+                        '<div class="col-xs-4 col-xs-offset-4 image-column text-center">',
+
+                            '<span class="image-wrapper no-select" ng-click="getNextItem()">',
+                                '<img src="images/{{item.numberString}}.jpg"/>',
+                                '<div class="image-title">{{item.title}}</div>',
+                            '</span>',
+
+                        '</div>',
+                    '</div>',
+
+                '</div>',
+
+                '<div class="row margin-top-sm row-thin-columns">',
+                    '<div class="col-xs-1"></div>',
+
+                    '<div class="col-xs-1" ng-if="showImage" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
+                        '<span class="image-wrapper-small">',
+                            '<img class="image-preview" src="images/{{groupItem.numberString}}.jpg"/>',
+                            '<div class="image-title">{{groupItem.title}}</div>',
+                        '</span>',
+                    '</div>',
+
+                    '<div class="col-xs-1" ng-if="!showImage" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
+                        '<span class="image-wrapper-small">',
+                            '<span class="fake-image"><i class="fa fa-question-circle"></i></span>',
+                            '<div class="image-title">---</div>',
+                        '</span>',
+                    '</div>',
+
+                    '<div class="col-xs-1"></div>',
                 '</div>'
 
             ].join('')
