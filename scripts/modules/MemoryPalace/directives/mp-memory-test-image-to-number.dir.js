@@ -100,33 +100,13 @@
                     '</div>',
                 '</div>',
 
-                '<div class="row">',
-                    '<div class="col-xs-6 col-xs-offset-3 text-center no-select">',
-
-                        '<div class="row">',
-                            '<div class="col-xs-6 text-center">',
-                                '<button class="btn btn-default btn-full-width" ng-click="toggleShowMode()">',
-                                    '<span ng-if="!showNumber">Show Number</span>',
-                                    '<span ng-if="showNumber">Hide Number</span>',
-                                '</button>',
-                            '</div>',
-                            '<div class="col-xs-6 text-center">',
-                                '<button class="btn btn-default btn-full-width" ng-click="toggleShowImageGroups()">',
-                                    '<span ng-if="!showGroups"><i class="fa fa-image"></i> Show Image Groups</span>',
-                                    '<span ng-if="showGroups"><i class="fa fa-image"></i> Hide Image Groups</span>',
-                                '</button>',
-                            '</div>',
-                        '</div>',
-
-                    '</div>',
-                '</div>',
-
                 '<div class="row margin-top-sm row-thin-columns" ng-if="showGroups">',
                     '<div class="col-xs-1"></div>',
 
-                    '<div class="col-xs-1" ng-repeat="groupNumber in item.groupNumbers track by $index" ng-click="setItemByGroupData(groupNumber)">',
+                    '<div class="col-xs-1" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
                         '<span class="image-wrapper-small">',
-                            '<img class="image-preview" src="images/{{item.groupNumbers[$index]}}.jpg"/>',
+                            '<img class="image-preview" src="images/{{groupItem.numberString}}.jpg"/>',
+                            '<div class="image-title">{{groupItem.title}}</div>',
                         '</span>',
                     '</div>',
 

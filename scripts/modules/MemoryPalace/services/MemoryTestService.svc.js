@@ -38,7 +38,7 @@
                 '16': 'Sonic the Hedgehog',
                 '17': 'Sub Zero : Mortal Kombat',
                 '18': 'Master Chief: Halo',
-                '19': 'Ghost Military: Call of Duty',
+                '19': 'Ghost: Call of Duty',
 
                 '20': 'Snake',
                 '21': 'Snail',
@@ -109,7 +109,7 @@
                 '80': 'Marble',
                 '81': 'Rubber Ball',
                 '82': 'Golf Ball',
-                '83': 'Billiard Ball (3)',
+                '83': 'Billiard Ball',
                 '84': 'Baseball',
                 '85': 'Football',
                 '86': 'Soccer Ball',
@@ -129,26 +129,28 @@
                 '99': 'Motorhome'
             };
 
-            var getItemByInteger = function (randomNum) {
-
-                var numberString = pad(randomNum, 2);
-
-                var item = {
+            var getItemDetails = function (numberString) {
+                return {
                     numberString: numberString,
                     groupNumber: numberString.charAt(0),
                     itemNumber: numberString.charAt(1),
                     title: memoryMap[numberString],
-                    groupNumbers: []
+                    groupItems: []
                 };
+            };
+
+            var getItemByInteger = function (randomNum) {
+
+                var numberString = pad(randomNum, 2);
+
+                var item = getItemDetails(numberString);
 
                 var minTen = Math.floor(randomNum / 10) * 10;
                 var maxTen = minTen + 10;
 
                 for (var i=minTen; i < maxTen; i++) {
-                    item.groupNumbers.push(pad(i, 2));
+                    item.groupItems.push(getItemDetails(pad(i, 2)));
                 }
-
-                console.log("minTen:", minTen, maxTen, randomNum);
 
                 return item;
             };
@@ -163,7 +165,6 @@
             };
 
             MemoryTestService.getItemByNumberString = function (numberString) {
-                console.log("parse this:", numberString, parseInt(numberString));
                 return getItemByInteger(parseInt(numberString));
             };
 

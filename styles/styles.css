@@ -331,18 +331,27 @@ button.btn-full-width {
     margin-bottom: 15px;
 }
 
+.image-title {
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .image-wrapper-small {
     cursor: pointer;
     display: inline-block;
     padding: 5px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 5px;
+    min-height: 140px;
 }
 
-.image-title {
-    font-size: 24px;
-    font-family: 'Open Sans', sans-serif;
+.image-wrapper-small .image-title {
+    padding-top: 5px;
+    font-size: 10px;
+    text-align: center;
 }
+
+
 
 /*============ NUMBER AREA ============*/
 
