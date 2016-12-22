@@ -11,6 +11,11 @@
 
             /*============ PRIVATE METHODS AND VARIABLES ============*/
 
+            var pad = function (num, size) {
+                var s = "000000000" + num;
+                return s.substr(s.length-size);
+            };
+
             var memoryMap = {
 
                 '00': 'Jar of Air',
@@ -124,10 +129,43 @@
                 '99': 'Motorhome'
             };
 
+            var getItemByInteger = function (randomNum) {
+
+                var numberString = pad(randomNum, 2);
+
+                var item = {
+                    numberString: numberString,
+                    groupNumber: numberString.charAt(0),
+                    itemNumber: numberString.charAt(1),
+                    title: memoryMap[numberString],
+                    groupNumbers: []
+                };
+
+                var minTen = Math.floor(randomNum / 10) * 10;
+                var maxTen = minTen + 10;
+
+                for (var i=minTen; i < maxTen; i++) {
+                    item.groupNumbers.push(pad(i, 2));
+                }
+
+                console.log("minTen:", minTen, maxTen, randomNum);
+
+                return item;
+            };
+
 
             /*============ SERVICE DEFINITION ============*/
 
-            MemoryTestService
+            MemoryTestService.getRandomItem = function () {
+
+                var randomNum = Math.round(Math.random()*99);
+                return getItemByInteger(randomNum);
+            };
+
+            MemoryTestService.getItemByNumberString = function (numberString) {
+                console.log("parse this:", numberString, parseInt(numberString));
+                return getItemByInteger(parseInt(numberString));
+            };
 
 
             /*============ LISTENERS ============*/

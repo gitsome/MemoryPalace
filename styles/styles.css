@@ -135,6 +135,56 @@ section {
 }
 
 
+/*============ THIN COLUMNS ============*/
+
+.row.row-thin-columns {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.row.row-thin-columns .col-xs-1 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+/*============ MARGIN HELPERS ============*/
+
+.margin-top-xs {
+    margin-top: 5px;
+}
+.margin-top-sm {
+    margin-top: 15px;
+}
+.margin-top-md {
+    margin-top: 30px;
+}
+.margin-top-lg {
+    margin-top: 45px;
+}
+
+.margin-bottom-xs {
+    margin-bottom: 5px;
+}
+.margin-bottom-sm {
+    margin-bottom: 15px;
+}
+.margin-bottom-md {
+    margin-bottom: 30px;
+}
+.margin-bottom-lg {
+    margin-bottom: 45px;
+}
+
+
+/*============ BUTTONS ============*/
+
+button.btn-full-width {
+    width: 100%;
+}
+
+
 /*============ MODALS =============*/
 
 .modal-footer.modal-footer-custom {
@@ -259,6 +309,49 @@ section {
 
 
 
+/*============ THE IMAGE ============*/
+
 .image-column img {
-    width: 100%;
+    max-width: 100%;
+    height: 250px;
+}
+
+.image-preview {
+    width: 75px;
+    height: 75px;
+}
+
+.image-wrapper {
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.image-wrapper-small {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.image-title {
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*============ NUMBER AREA ============*/
+
+.mp-number {
+    font-size: 48px;
+    font-family: 'Nova Mono', monospace;
+}
+
+.mp-number-digit {
+    margin-left: 5px;
+    margin-right: 5px;
 }
