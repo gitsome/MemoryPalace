@@ -18,8 +18,7 @@
 
                     /*============ MODEL ============*/
 
-                    $scope.showMode = 'none';
-
+                    $scope.showNumber = false;
                     $scope.showGroups = false;
 
                     $scope.item = {};
@@ -28,24 +27,21 @@
                     /*============ MODEL DEPENDENT METHODS ============*/
 
                     var getNextItem = function () {
+                        $scope.showNumber = false;
+                        $scope.showGroups = false;
                         $scope.item = MemoryTestService.getRandomItem();
                     };
 
 
                     /*============ BEHAVIOR ============*/
 
-                    $scope.toggleShowMode = function () {
-                        if ($scope.showMode === 'none') {
-                            $scope.showMode = 'group';
-                        } else if ($scope.showMode === 'group') {
-                            $scope.showMode = 'all';
-                        } else {
-                            $scope.showMode = 'none';
-                        }
-                    };
-
                     $scope.toggleShowImageGroups = function () {
                         $scope.showGroups = !$scope.showGroups;
+                    };
+
+                    $scope.toggleShowMode = function () {
+                        $scope.showNumber = !$scope.showNumber;
+                        $scope.showGroups = $scope.showNumber;
                     };
 
                     $scope.setItemByGroupData = function (itemNumberString) {
@@ -68,7 +64,7 @@
                 '<div class="row">',
                     '<div class="col-xs-4 col-xs-offset-4 image-column text-center">',
 
-                        '<span class="image-wrapper" ng-click="getNextItem()">',
+                        '<span class="image-wrapper no-select" ng-click="getNextItem()">',
                             '<img src="images/{{item.numberString}}.jpg"/>',
                             '<div class="image-title">{{item.title}}</div>',
                         '</span>',
@@ -79,29 +75,39 @@
                 '<div class="row">',
                     '<div class="col-xs-6 col-xs-offset-3 text-center">',
 
-                        '<div class="mp-number well" ng-click="toggleShowMode()">',
-                            '<span class="mp-number-digit">',
-                                '<i class="fa fa-question-circle" ng-if="showMode === \'none\'"></i>',
-                                '<span ng-if="showMode !== \'none\'">{{item.groupNumber}}</span>',
+                        '<div class="mp-number well no-select" ng-click="toggleShowMode()">',
+
+                            '<span ng-if="!showNumber">',
+                                '<span class="mp-number-digit">',
+                                    '<i class="fa fa-question-circle"></i>',
+                                '</span>',
+                                '<span class="mp-number-digit">',
+                                    '<i class="fa fa-question-circle"></i>',
+                                '</span>',
                             '</span>',
-                            '<span class="mp-number-digit">',
-                                '<i class="fa fa-question-circle" ng-if="showMode !== \'all\'"></i>',
-                                '<span ng-if="showMode === \'all\'">{{item.itemNumber}}</span>',
+
+                            '<span ng-if="showNumber">',
+                                '<span class="mp-number-digit">',
+                                    '<span>{{item.groupNumber}}</span>',
+                                '</span>',
+                                '<span class="mp-number-digit">',
+                                    '<span>{{item.itemNumber}}</span>',
+                                '</span>',
                             '</span>',
+
                         '</div>',
 
                     '</div>',
                 '</div>',
 
                 '<div class="row">',
-                    '<div class="col-xs-6 col-xs-offset-3 text-center">',
+                    '<div class="col-xs-6 col-xs-offset-3 text-center no-select">',
 
                         '<div class="row">',
                             '<div class="col-xs-6 text-center">',
                                 '<button class="btn btn-default btn-full-width" ng-click="toggleShowMode()">',
-                                    '<span ng-if="showMode === \'none\'">Show Group Number</span>',
-                                    '<span ng-if="showMode === \'group\'">Show Complete Number</span>',
-                                    '<span ng-if="showMode === \'all\'">Hide Number</span>',
+                                    '<span ng-if="!showNumber">Show Number</span>',
+                                    '<span ng-if="showNumber">Hide Number</span>',
                                 '</button>',
                             '</div>',
                             '<div class="col-xs-6 text-center">',
@@ -115,7 +121,7 @@
                     '</div>',
                 '</div>',
 
-                '<div class="row margin-top-sm row-thin-columns">',
+                '<div class="row margin-top-sm row-thin-columns" ng-if="showGroups">',
                     '<div class="col-xs-1"></div>',
 
                     '<div class="col-xs-1" ng-repeat="groupNumber in item.groupNumbers track by $index" ng-click="setItemByGroupData(groupNumber)">',
