@@ -40,8 +40,13 @@
                     };
 
                     $scope.toggleShowMode = function () {
-                        $scope.showNumber = !$scope.showNumber;
-                        $scope.showGroups = $scope.showNumber;
+
+                        if ($scope.showNumber) {
+                            getNextItem();
+                        } else {
+                            $scope.showNumber = true;
+                            $scope.showGroups = true;
+                        }
                     };
 
                     $scope.setItemByGroupData = function (itemNumberString) {
@@ -103,8 +108,8 @@
                 '<div class="row margin-top-sm row-thin-columns" ng-if="showGroups">',
                     '<div class="col-xs-1"></div>',
 
-                    '<div class="col-xs-1" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
-                        '<span class="image-wrapper-small">',
+                    '<div class="col-xs-1 group-image-container" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
+                        '<span class="image-wrapper image-wrapper-small">',
                             '<img class="image-preview" src="images/{{groupItem.numberString}}.jpg"/>',
                             '<div class="image-title">{{groupItem.title}}</div>',
                         '</span>',

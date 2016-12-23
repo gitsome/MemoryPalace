@@ -311,6 +311,42 @@ button.btn-full-width {
 
 /*============ THE IMAGE ============*/
 
+.group-image-container:nth-child(2) .image-wrapper,
+.group-image-container:nth-child(3) .image-wrapper,
+.group-image-container:nth-child(4) .image-wrapper,
+.group-image-container:nth-child(5) .image-wrapper,
+.group-image-container:nth-child(6) .image-wrapper {
+    border-color: #5cb85c;
+}
+.group-image-container:nth-child(2) .image-wrapper {
+    border-left: 5px solid #5cb85c;
+}
+.group-image-container:nth-child(6) .image-wrapper {
+    border-right: 5px solid #5cb85c;
+}
+.group-image-container:nth-child(4) .image-wrapper {
+    border-top: 5px solid #5cb85c;
+    border-bottom: 5px solid #5cb85c;
+}
+
+.group-image-container:nth-child(7) .image-wrapper,
+.group-image-container:nth-child(8) .image-wrapper,
+.group-image-container:nth-child(9) .image-wrapper,
+.group-image-container:nth-child(10) .image-wrapper,
+.group-image-container:nth-child(11) .image-wrapper {
+    border-color: #f0ad4e;
+}
+.group-image-container:nth-child(7) .image-wrapper {
+    border-left: 5px solid #f0ad4e;
+}
+.group-image-container:nth-child(11) .image-wrapper {
+    border-right: 5px solid #f0ad4e;
+}
+.group-image-container:nth-child(9) .image-wrapper {
+    border-top: 5px solid #f0ad4e;
+    border-bottom: 5px solid #f0ad4e;
+}
+
 .image-column img {
     max-width: 100%;
     height: 250px;
@@ -329,6 +365,7 @@ button.btn-full-width {
     border-radius: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
+    min-height: 310px;
 }
 
 .image-wrapper .fake-image {
@@ -349,10 +386,11 @@ button.btn-full-width {
 
 .image-title {
     font-size: 24px;
+    display: block;
     font-family: 'Open Sans', sans-serif;
 }
 
-.image-wrapper-small {
+.image-wrapper.image-wrapper-small {
     cursor: pointer;
     display: inline-block;
     padding: 5px;
@@ -361,7 +399,7 @@ button.btn-full-width {
     min-height: 140px;
 }
 
-.image-wrapper-small .fake-image {
+.image-wrapper.image-wrapper-small .fake-image {
     display: inline-block;
     width: 75px;
     height: 75px;
@@ -369,7 +407,7 @@ button.btn-full-width {
     font-size: 30px;
     opacity: 0.5;
 }
-.image-wrapper-small .fake-image i {
+.image-wrapper.image-wrapper-small .fake-image i {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -377,7 +415,7 @@ button.btn-full-width {
     margin-left: -13px;
 }
 
-.image-wrapper-small .image-title {
+.image-wrapper.image-wrapper-small .image-title {
     padding-top: 5px;
     font-size: 10px;
     text-align: center;

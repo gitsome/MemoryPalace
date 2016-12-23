@@ -119,7 +119,7 @@
 
                 '90': 'Micro Machine',
                 '91': 'Matchbox Car',
-                '92': 'Remote Control Car',
+                '92': 'Remote Control Truck',
                 '93': 'Go Cart',
                 '94': 'Golf Cart',
                 '95': 'Smart Car',

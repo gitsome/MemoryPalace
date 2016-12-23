@@ -81,7 +81,7 @@
                         '<div class="col-xs-4 col-xs-offset-4 image-column text-center">',
 
                             '<span class="image-wrapper no-select">',
-                                '<span class="fake-image"><i class="fa fa-question-circle"></i></span>',
+                                '<div class="fake-image"><i class="fa fa-question-circle"></i></div>',
                                 '<div class="image-title">---</div>',
                             '</span>',
 
@@ -107,15 +107,15 @@
                 '<div class="row margin-top-sm row-thin-columns">',
                     '<div class="col-xs-1"></div>',
 
-                    '<div class="col-xs-1" ng-if="showImage" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
-                        '<span class="image-wrapper-small">',
+                    '<div class="col-xs-1 group-image-container" ng-if="showImage" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
+                        '<span class="image-wrapper image-wrapper-small">',
                             '<img class="image-preview" src="images/{{groupItem.numberString}}.jpg"/>',
                             '<div class="image-title">{{groupItem.title}}</div>',
                         '</span>',
                     '</div>',
 
-                    '<div class="col-xs-1" ng-if="!showImage" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
-                        '<span class="image-wrapper-small">',
+                    '<div class="col-xs-1 group-image-container" ng-if="!showImage" ng-repeat="groupItem in item.groupItems track by $index" ng-click="setItemByGroupData(groupItem.numberString)">',
+                        '<span class="image-wrapper image-wrapper-small">',
                             '<span class="fake-image"><i class="fa fa-question-circle"></i></span>',
                             '<div class="image-title">---</div>',
                         '</span>',
