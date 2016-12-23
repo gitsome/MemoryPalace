@@ -101,7 +101,7 @@
                 '73': 'Cam',
                 '74': 'Jerry McQuire',
                 '75': 'Dwight Schrute',
-                '76': 'Michale Scott',
+                '76': 'Michael Scott',
                 '77': 'Walter White',
                 '78': 'Frank Underwood',
                 '79': 'Hitler',
@@ -114,7 +114,7 @@
                 '85': 'Football',
                 '86': 'Soccer Ball',
                 '87': 'Basketball',
-                '88': 'Beach Volleyball',
+                '88': 'Beach Ball',
                 '89': 'Stability Ball',
 
                 '90': 'Micro Machine',

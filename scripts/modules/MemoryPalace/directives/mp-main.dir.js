@@ -63,8 +63,8 @@
                         '<div class="col-xs-4 col-xs-offset-4">',
 
                             '<div class="btn-group btn-group-justified">',
-                                '<label class="btn btn-default" ng-click="doImageToNumber()">Image to Number</label>',
                                 '<label class="btn btn-default" ng-click="doNumberToImage()">Number to Image</label>',
+                                '<label class="btn btn-default" ng-click="doImageToNumber()">Image to Number</label>',
                             '</div>',
 
                         '</div>',
