@@ -105,6 +105,11 @@
                     '</div>',
                 '</div>',
 
+                '<div class="row margin-top-sm">',
+                    '<div class="col-xs-12 text-center mp-group-title" ng-if="showGroups">{{item.groupName}}</div>',
+                    '<div class="col-xs-12 text-center mp-group-title" ng-if="!showGroups">- - -</div>',
+                '</div>',
+
                 '<div class="row margin-top-sm row-thin-columns" ng-if="showGroups">',
                     '<div class="col-xs-1"></div>',
 

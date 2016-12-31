@@ -307,7 +307,9 @@ button.btn-full-width {
     margin-bottom: 30px;
 }
 
-
+.mp-group-title {
+    font-weight: 18px;
+}
 
 /*============ THE IMAGE ============*/
 

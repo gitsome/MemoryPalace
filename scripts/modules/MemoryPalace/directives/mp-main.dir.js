@@ -37,6 +37,10 @@
                         $scope.testMode = 'imageToNumber';
                     };
 
+                    $scope.back = function () {
+                        $scope.testMode = false;
+                    };
+
 
                     /*============ LISTENERS ============*/
 
@@ -54,13 +58,18 @@
 
                     '<div class="row">',
                         '<div class="col-xs-12">',
-                            '<h1 class="text-center">Memory Palace Training</h1>',
+                            '<h1 class="text-center">',
+                                '<button class="btn btn-primary" ng-if="testMode" ng-click="back()"><i class="fa fa-chevron-left"></i> Back</button> ',
+                                'Memory Palace Training',
+                            '</h1>',
                         '</div>',
                     '</div>',
 
 
                     '<div class="row" ng-if="!testMode">',
                         '<div class="col-xs-4 col-xs-offset-4">',
+
+                            '<h2>Select a Training Mode</h2>',
 
                             '<div class="btn-group btn-group-justified">',
                                 '<label class="btn btn-default" ng-click="doNumberToImage()">Number to Image</label>',
