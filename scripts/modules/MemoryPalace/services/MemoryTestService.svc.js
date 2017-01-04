@@ -129,7 +129,7 @@
                         '71': 'Oprah',
                         '72': 'Phil Dunphy',
                         '73': 'Cam',
-                        '74': 'Jerry McQuire',
+                        '74': 'Jerry Maguire',
                         '75': 'Dwight Schrute',
                         '76': 'Michael Scott',
                         '77': 'Walter White',
